@@ -1,8 +1,28 @@
-/* Pizza Project Styles */
+/* Pizza project styles. */
 
-/* Images and Icons */
+/* Images and icons. */
 
 .pizza-slices img {
   height: auto;
   width: 50px;
+}
+
+/* Section styles. */
+
+section#header {
+	margin: 0 auto;
+	max-width: 800px;
+}
+
+/* Styles for larger screens */
+
+@media only screen and (min-width: 767px) {
+	section#pizza-table .row div {
+		text-align: left;
+	}
+
+	section#pizza-table .row div:first-child {
+		border-right: 1px solid #C7C7C7;
+		text-align: right;
+	}
 }
