@@ -7,6 +7,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
     <link href="../ryandasher/static/css/ryan.css" rel="stylesheet" />
+    <link href="static/css/pizza.css" rel="stylesheet" />
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="57x57" href="static/images/favicons/apple-touch-icon-57x57.png">
@@ -31,5 +32,21 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 <body>
+    <section id="submit">
+        <form id="pizza-form" action="#">
+            <div>
+                <label>Sharon:</label><br />
+                <input type="number" name="sharon_slices" placeholder="0">
+            </div>
+            <div>
+                <label>Ryan:</label><br />
+                <input type="number" name="ryan_slices" placeholder="0">
+            </div>
+            <div>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </section>
 </body>
 </html>

@@ -14,7 +14,36 @@ section#header {
 	max-width: 800px;
 }
 
-/* Styles for larger screens */
+section#pizza-table {
+	max-width: 1000px;
+}
+
+footer {
+	clear: both;
+}
+
+/* Element styles. */
+
+form {
+	margin: 0 auto;
+	max-width: 200px;
+}
+
+form div {
+	padding: 10px 0;
+}
+
+form label {
+	font-size: 12px;
+}
+
+#pizza-form input {
+	font-size: 20px;
+}
+
+
+
+/* Styles for larger screens. */
 
 @media only screen and (min-width: 767px) {
 	section#pizza-table .row div {
