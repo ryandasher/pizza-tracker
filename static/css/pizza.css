@@ -39,8 +39,14 @@ form label {
 
 #pizza-form input {
 	font-size: 20px;
+	padding: 5px;
+	width: 186px;
 }
 
+#pizza-form input[type=submit] {
+	margin-top: 10px;
+	width: 100%;
+}
 
 
 /* Styles for larger screens. */
