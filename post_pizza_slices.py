@@ -10,7 +10,6 @@ def lambda_handler(data, context):
 	data -- Data to be stored (Dictionary).
 	context -- AWS context for the request (Object).
 	"""
-
 	item_name = data['Name']
 
 	if data['Password'] and data['Password'] == 'INSERT PASSWORD':
