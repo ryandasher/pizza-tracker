@@ -10,6 +10,7 @@ def lambda_handler(event, context):
 	event -- Takes the empty request body (Dictionary).
 	context -- AWS context for the request (Object).
 	"""
+
 	data = {}
 
 	try:
