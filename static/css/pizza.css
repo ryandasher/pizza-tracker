@@ -60,4 +60,8 @@ form label {
 		border-right: 1px solid #C7C7C7;
 		text-align: right;
 	}
+
+	section#pizza-table #sharon {
+		text-align: right;
+	}
 }
