@@ -3,8 +3,13 @@
 /* Images and icons. */
 
 .pizza-slices img {
-  height: auto;
-  width: 50px;
+	height: auto;
+	vertical-align: middle;
+	width: 50px;
+}
+
+.pizza-slices img.pizza-pie {
+	width: 75px;
 }
 
 /* Section styles. */
@@ -47,7 +52,6 @@ form label {
 	margin-top: 10px;
 	width: 100%;
 }
-
 
 /* Styles for larger screens. */
 
