@@ -13,17 +13,12 @@ def lambda_handler(event, context):
 	data = {}
 
 	try:
-		data['Ryan'] = sdb.get_attributes(
-			DomainName='pizza',
-			ItemName='Ryan',
-			AttributeNames=['Slices']
-		)
-
-		data['Sharon'] = sdb.get_attributes(
-			DomainName='pizza',
-			ItemName='Sharon',
-			AttributeNames=['Slices']
-		)
+		for person in ['Sharon', 'Ryan']:
+			data[person] = sdb.get_attributes(
+				DomainName='pizza',
+				ItemName=person,
+				AttributeNames=['Slices']
+			)
 	except:
 		return json.dumps({'Error': 'Data could not be retrieved.'})
 
