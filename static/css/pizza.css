@@ -53,6 +53,23 @@ form label {
 	width: 100%;
 }
 
+#message {
+	border-radius: 5px;
+	color: #FFF;
+	margin: 20px auto;
+	padding: 5px;
+	text-align: center;
+	width: 190px;
+}
+
+#message.success {
+	background-color: #5CB85C;
+}
+
+#message.failure {
+	background-color: #D9534F;
+}
+
 /* Styles for larger screens. */
 
 @media only screen and (min-width: 767px) {

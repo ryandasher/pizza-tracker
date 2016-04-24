@@ -1,4 +1,5 @@
-var endpoint = 'https://bio9mswh9k.execute-api.us-west-2.amazonaws.com/Prod/pizzaslices';
+var endpoint =
+	'https://bio9mswh9k.execute-api.us-west-2.amazonaws.com/Prod/pizzaslices';
 
 /**
 * Make an AWS API Gateway request.
@@ -7,6 +8,7 @@ var endpoint = 'https://bio9mswh9k.execute-api.us-west-2.amazonaws.com/Prod/pizz
 * url -- Endpoint to request (string).
 * method -- GET or POST, must be capitalized (string).
 * body -- Data to pass to request (string).
+* callback -- Function to run with the response (function).
 */
 function makeApiRequest(url, method, body, callback) {
 	var response, httpRequest;
@@ -19,12 +21,16 @@ function makeApiRequest(url, method, body, callback) {
 	}
 
 	httpRequest.onreadystatechange = function() {
-		if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+		if (httpRequest.readyState == 4 && httpRequest.status == 200) {
 			callback(JSON.parse(httpRequest.responseText));
 		}
 	}
 
-	httpRequest.open(method, url);
+	httpRequest.open(method, url, true);
+	httpRequest.setRequestHeader(
+		"Content-Type",
+		"application/json;charset=UTF-8"
+	);
 	httpRequest.send(body);
 }
 
@@ -49,6 +55,7 @@ function displayPizzaIcons(response) {
 			for (; pies >= 1; pies--) {
 				var pizza_image = document.createElement('img');
 				pizza_image.setAttribute('src', 'static/images/pizza_pie.png');
+				pizza_image.setAttribute('class', 'pizza-pie');
 				pizza_div.appendChild(pizza_image);
 			}
 
@@ -66,23 +73,44 @@ function displayPizzaIcons(response) {
 }
 
 
+/**
+* Gather and parse form data for POST request AWS API endpoint.
+*/
 function submitPizza() {
-	alert("The hey?");
 	var data = {
-		'Sharon': parseInt(document.getElementsByName('sharon_slices')[0].value),
+		'Sharon': parseInt(
+			document.getElementsByName('sharon_slices')[0].value),
 		'Ryan': parseInt(document.getElementsByName('ryan_slices')[0].value),
 		'Password': document.getElementsByName('password')[0].value
 	}
 
-	makeApiRequest(endpoint, 'POST', data, displaySubmitMessage);
+	makeApiRequest(
+		endpoint,
+		'POST',
+		JSON.stringify(data),
+		displaySubmitMessage
+	);
 }
 
+/**
+* Display some helpful messaging based on the response of the POST request.
+*
+* Args:
+* resp -- Parsed response text (object).
+*/
+function displaySubmitMessage(resp) {
+	var msg_div = document.getElementById('message');
 
-function displaySubmitMessage() {
-	alert("Just a test alert now");
+	if (resp.Success) {
+		msg_div.className = 'success';
+		msg_div.innerHTML = '<p>' + resp.Success + '</p>';
+	} else {
+		msg_div.className = 'failure';
+		msg_div.innerHTML = '<p>' + resp.Error + '</p>';
+	}
 }
 
-
+// Only make the GET request if we're on the main Pizza Tracker page.
 if (document.getElementById('pizza-table')) {
 	makeApiRequest(endpoint, 'GET', null, displayPizzaIcons);
 }
