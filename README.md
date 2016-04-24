@@ -8,6 +8,4 @@ Sharon and I can update the amount of slices we've eaten by using a separate for
 
 #### TODOS:
 
-* Don't append query string after form submission.
-* Set up post submission messaging.
-* Finish POST request logic.
+* Try writing some JavaScript tests.
