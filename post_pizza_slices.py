@@ -1,4 +1,4 @@
-import boto3, json
+import boto3
 
 sdb = boto3.client('sdb')
 
@@ -33,10 +33,8 @@ def lambda_handler(data, context):
 					}]
 				)
 
-			return json.dumps({'Success': 'Your data was submitted!'})
+			return {'Success': 'Your data was submitted!'}
 		except:
-			return json.dumps({'Error': 'Your data was not submitted.'})
+			return {'Error': 'Your data was not submitted.'}
 	else:
-		return json.dumps({
-			'Error': 'Ah ah ah, you didn\'t say the magic word.'
-		})
+		return {'Error': 'Ah ah ah, you didn\'t say the magic word.'}
