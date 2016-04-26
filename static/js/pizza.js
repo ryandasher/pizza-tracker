@@ -84,6 +84,10 @@ function submitPizza() {
 		'Password': document.getElementsByName('password')[0].value
 	}
 
+	if (isNaN(data.Sharon)) data.Sharon = 0;
+
+	if (isNaN(data.Ryan)) data.Ryan = 0;
+
 	makeApiRequest(
 		endpoint,
 		'POST',
