@@ -108,6 +108,8 @@ function displaySubmitMessage(resp) {
 	if (resp.Success) {
 		msg_div.className = 'success';
 		msg_div.innerHTML = '<p>' + resp.Success + '</p>';
+		document.getElementsByName('sharon_slices')[0].value = "0";
+		document.getElementsByName('ryan_slices')[0].value = "0";
 	} else {
 		msg_div.className = 'failure';
 		msg_div.innerHTML = '<p>' + resp.Error + '</p>';
