@@ -2,14 +2,53 @@
 
 /* Images and icons. */
 
-.pizza-slices img {
+.pizza-slices img, .pizza-spinner img {
 	height: auto;
 	vertical-align: middle;
 	width: 50px;
 }
 
-.pizza-slices img.pizza-pie {
+img.pizza-pie {
 	width: 75px;
+}
+
+.pizza-spinner img {
+	-moz-animation: 1.5s rotateRight infinite linear;
+	-ms-animation: 1.5s rotateRight infinite linear;
+	-webkit-animation: 1.5s rotateRight infinite linear;
+}
+
+@-moz-keyframes rotateRight {
+	0% {
+		-moz-transform: rotate(0deg);
+		-moz-transform-origin: 50% 50%;
+	}
+
+	100% {
+		-moz-transform: rotate(360deg);
+	}
+}
+
+@-ms-keyframes rotateRight {
+	0% {
+		-ms-transform: rotate(0deg);
+		-ms-transform-origin: 50% 50%;
+	}
+
+	100% {
+		-ms-transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes rotateRight {
+	0% {
+		-webkit-transform: rotate(0deg);
+		-webkit-transform-origin: 50% 50%;
+	}
+
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
 }
 
 /* Section styles. */
@@ -21,6 +60,10 @@ section#header {
 
 section#pizza-table {
 	max-width: 1000px;
+}
+
+section#pizza-table .row .pizza-spinner {
+	text-align: center;
 }
 
 footer {
@@ -77,7 +120,7 @@ form label {
 		text-align: left;
 	}
 
-	section#pizza-table .row div:first-child {
+	section#pizza-table .row:first-child div:first-child {
 		border-right: 1px solid #C7C7C7;
 		text-align: right;
 	}

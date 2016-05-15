@@ -70,6 +70,8 @@ function displayPizzaIcons(response) {
 			}
 		}
 	}
+
+	document.getElementsByClassName('pizza-spinner')[0].classList.add('hidden');
 }
 
 
